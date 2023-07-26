@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://kit.fontawesome.com/193aeba677.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <h1 id="heading_style">
+        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+        MY CONTACTS LIST
+    </h1>
+    
+    <div id="list_style"> 
+        <% for(let i of contact_list) { %>
+            <ul>
+           <li>
+              <table>
+                <tr>
+                  <th>
+                    <i class="fa fa-user" aria-hidden="true" sty></i>
+                    <%= i.name %>
+                </th>
+                  <th id="last"><%= i.phone %>
+                </th>
+                  <th>
+                    <button class="trash">
+                    <a href="/delete/?id=<%=i._id%>">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>    
+                </button>
+            </th>
+                </tr>
+              </table>
+           </li>
+        </ul>
+        <% } %>
+    </div>
+       
+<div class="form">
+    <form action="create-new" method="POST">
+        <input class="name_feild"type="text" name="name" placeholder="Name" required>
+        <input class="name_feild"type="text" name="phone" placeholder="Phone Number" minlength= "10" maxlength= "10" required>
+        <button id="add_button"type="submit">Add</button>
+    </form>
+</div>
+    
+
+<script type="text/javascript" src="/js/home.js"></script>
+</body>
+</html>
